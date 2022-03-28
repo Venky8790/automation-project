@@ -77,7 +77,7 @@ class TestExecutionAutomation:
         bold = workbook.add_format({'bold': True})
         worksheet.write(0, 0, "Test case Name", bold)
         worksheet.write(0, 2, "Result", bold)
-        worksheet.write(0, 1, "Date", bold)
+        worksheet.write(0, 1, "Time & Date", bold)
         row = 1
         col = 0
         for i, j in res:
