@@ -1,32 +1,26 @@
 import copy
-
-def bubble_sort_v1(container: object) -> object:
-    # setting up variables
-   
-    container = list(copy.copy(container))
-    length = len(container)
-
-    while length:
-
-        for i in range(len(container) - 1):
-            if container[i] > container[i + 1]:
-                container[i], container[i + 1] = container[i + 1], container[i]
-
-        length -= 1
-
-    return container
+import unittest
 
 
-'''
-data = [-2, 45, 0, 11, -9]
-print(bubble_sort_v1(data))
+class TestBubbleSortAlgorithm(unittest.TestCase):
+    @staticmethod
+    def _test_sort(sorting_func, input_list):
+        expected_list = sorted(input_list)
+        assert sorting_func(input_list) == expected_list
 
-data = (-2, 45, 0, 11, -3925)
-print(bubble_sort_v1(data))
-print(type(data))
+    @staticmethod
+    def bubble_sort_v1(container: object) -> object:
+        # setting up variables
 
-# failed
-data = [-2, 45, (0, 11), -9]
-#print(bubble_sort_v1(data))
+        container = list(copy.copy(container))
+        length = len(container)
 
-'''
+        while length:
+
+            for i in range(len(container) - 1):
+                if container[i] > container[i + 1]:
+                    container[i], container[i + 1] = container[i + 1], container[i]
+
+            length -= 1
+
+        return container

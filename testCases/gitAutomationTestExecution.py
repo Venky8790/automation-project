@@ -2,7 +2,7 @@ import os.path
 from utilities.gitAutomationUtils import *
 
 git_auto = TestExecutionAutomation()
-non_testing_files = ["__init__.py", "gitAutomationTestExecution.py", "updatedsort.py"]
+non_testing_files = ["__init__.py", "gitAutomationTestExecution.py", "updatedSort.py"]
 
 
 class GitAutomationTestExecutionTest:
@@ -32,7 +32,7 @@ class GitAutomationTestExecutionTest:
         else:
             print("-I- Currently there are no tests are available")
         git_auto.generate_result_files(res)
-        git_auto.Send_mail()
+        git_auto.send_mail()
 
 
 if __name__ == "__main__":

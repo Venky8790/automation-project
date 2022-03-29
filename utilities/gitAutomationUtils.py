@@ -4,11 +4,9 @@ import xlsxwriter
 import datetime
 import smtplib
 from email.mime.text import MIMEText
-from email.mime.image import MIMEImage
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 
-import pytest
 ini_file = os.path.abspath(os.path.dirname(".\\..\configurations\."))
 config = configparser.RawConfigParser()
 config.read(ini_file + "\\config.ini")
@@ -58,7 +56,7 @@ class TestExecutionAutomation:
         if "testCases" in folders:
             os.chdir(testCases_path)
             if file_name in os.listdir():
-                test = os.system(command=file_name)
+                os.system(command=file_name)
 
             else:
                 print("The file is not available in this directory")
@@ -70,7 +68,7 @@ class TestExecutionAutomation:
         os.chdir(testData_path)
         # results_list = os.listdir()
         x = datetime.datetime.now()
-        workbook = xlsxwriter.Workbook("Test_case_result"+ ".xlsx")
+        workbook = xlsxwriter.Workbook("Test_case_result" + ".xlsx")
         worksheet = workbook.add_worksheet("Test_case_results")
         worksheet.set_column(0, 0, 50)
         bold = workbook.add_format({'bold': True})
@@ -81,18 +79,19 @@ class TestExecutionAutomation:
         col = 0
         for i, j in res:
             worksheet.write(row, col, i)
-            worksheet.write(row, col + 1, (x.strftime("%X") +"  "+x.strftime("%x")))
+            worksheet.write(row, col + 1, (x.strftime("%X") + " " + x.strftime("%x")))
             worksheet.write(row, col + 2, j)
             row += 1
         workbook.close()
 
     @staticmethod
-    def Send_mail():
+    def send_mail():
         print("Mail Sending Started")
         smtp = smtplib.SMTP('smtp.gmail.com', 587)
         smtp.ehlo()
         smtp.starttls()
-        smtp.login('arathod250498@gmail.com', '8897258397') # Login with your email and password
+
+        smtp.login('arathod250498@gmail.com', '8897258397')  # Login with your email and password
 
         def message(subject="Python Notification",
                     text="", attachments=None):
@@ -116,17 +115,17 @@ class TestExecutionAutomation:
                     msg.attach(file)
             return msg
         # Call the message function
-        msg = message("Good!", "Hi there!", r"C:\repo2\automation-project\testData\Test_case_result.xlsx")
+
+        msag = message("Good!", "Hi there!", r"C:\repo2\automation-project\testData\Test_case_result.xlsx")
 
         # Make a list of emails.
-        to = ['venkatv19be1d3@gmail.com']
+        to = ['venkataramanadadimi@gmail.com']
 
         # Provide some data to the sendmail function!
         smtp.sendmail(from_addr='arathod250498@gmail.com',
-                      to_addrs=to, msg=msg.as_string())
+                      to_addrs=to, msg=msag.as_string())
 
         # Finally, don't forget to close the connection
         smtp.quit()
 
         print("Mail Sending Completed...")
-
