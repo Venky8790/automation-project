@@ -93,7 +93,7 @@ class TestExecutionAutomation:
         smtp = smtplib.SMTP('smtp.gmail.com', 587)
         smtp.ehlo()
         smtp.starttls()
-        smtp.login('User mail', 'Password') # Login with your email and password
+        smtp.login('venkataramanadadimi@gmail.com', '8790218077') # Login with your email and password
 
         def message(subject="Python Notification",
                     text="", attachments=None):
@@ -120,10 +120,10 @@ class TestExecutionAutomation:
         msg = message("Good!", "Hi there!", r"C:\repo2\automation-project\testData\Test_case_result.xlsx")
 
         # Make a list of emails.
-        to = ["To address"]
+        to = ["venkatv19be1d3@gmail.com"]
 
         # Provide some data to the sendmail function!
-        smtp.sendmail(from_addr="from address",
+        smtp.sendmail(from_addr="venkataramanadadimi@gmail.com",
                       to_addrs=to, msg=msg.as_string())
 
         # Finally, don't forget to close the connection
