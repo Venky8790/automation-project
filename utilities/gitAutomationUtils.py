@@ -69,7 +69,6 @@ class TestExecutionAutomation:
     def generate_result_files(res):
         os.chdir(testData_path)
         # results_list = os.listdir()
-        #curr_date = str(datetime.date.today())
         x = datetime.datetime.now()
         workbook = xlsxwriter.Workbook("Test_case_result"+ ".xlsx")
         worksheet = workbook.add_worksheet("Test_case_results")
@@ -77,7 +76,7 @@ class TestExecutionAutomation:
         bold = workbook.add_format({'bold': True})
         worksheet.write(0, 0, "Test case Name", bold)
         worksheet.write(0, 2, "Result", bold)
-        worksheet.write(0, 1, "Date", bold)
+        worksheet.write(0, 1, "Time & Date", bold)
         row = 1
         col = 0
         for i, j in res:
@@ -93,7 +92,7 @@ class TestExecutionAutomation:
         smtp = smtplib.SMTP('smtp.gmail.com', 587)
         smtp.ehlo()
         smtp.starttls()
-        smtp.login('venkataramanadadimi@gmail.com', '8790218077') # Login with your email and password
+        smtp.login('arathod250498@gmail.com', '8897258397') # Login with your email and password
 
         def message(subject="Python Notification",
                     text="", attachments=None):
@@ -120,10 +119,10 @@ class TestExecutionAutomation:
         msg = message("Good!", "Hi there!", r"C:\repo2\automation-project\testData\Test_case_result.xlsx")
 
         # Make a list of emails.
-        to = ["venkatv19be1d3@gmail.com"]
+        to = ['venkatv19be1d3@gmail.com']
 
         # Provide some data to the sendmail function!
-        smtp.sendmail(from_addr="venkataramanadadimi@gmail.com",
+        smtp.sendmail(from_addr='arathod250498@gmail.com',
                       to_addrs=to, msg=msg.as_string())
 
         # Finally, don't forget to close the connection
