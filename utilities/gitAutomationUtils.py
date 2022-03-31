@@ -119,7 +119,7 @@ class TestExecutionAutomation:
         msag = message("Good!", "Hi there!", r"C:\repo2\automation-project\testData\Test_case_result.xlsx")
 
         # Make a list of emails.
-        to = ['venkataramanadadimi@gmail.com']
+        to = ['venkataramanadadimi@gmail.com', 'anjalirathod2504@gmail.com']
 
         # Provide some data to the sendmail function!
         smtp.sendmail(from_addr='arathod250498@gmail.com',

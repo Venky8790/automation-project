@@ -10,7 +10,7 @@ def generate_result_files(res):
     workbook = xlsxwriter.Workbook("Results_" + curr_date + ".xlsx")
     worksheet = workbook.add_worksheet("Test_case_results")
     worksheet.set_column(0, 0, 50)
-    worksheet.write(0, 0, "Test case Name", format= bold)
+    worksheet.write(0, 0, "Test case Name", format='bold')
     worksheet.write(0, 1, "Result")
     row = 1
     col = 0
